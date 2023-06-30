@@ -32,6 +32,7 @@ kotlin {
             useJUnitPlatform()
         }
     }
+
     js(IR) {
         browser {
             commonWebpackConfig {
@@ -41,6 +42,7 @@ kotlin {
             }
         }
     }
+
     def hostOs = System.getProperty("os.name")
     def isMingwX64 = hostOs.startsWith("Windows")
     def nativeTarget
