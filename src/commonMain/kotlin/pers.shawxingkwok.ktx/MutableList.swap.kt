@@ -1,7 +1,7 @@
 package pers.shawxingkwok.ktx
 
 /**
- * Swap values between those at [i] and [j].
+ * Swap values between elements at [i] and [j].
  *
  * Usage example:
  *
