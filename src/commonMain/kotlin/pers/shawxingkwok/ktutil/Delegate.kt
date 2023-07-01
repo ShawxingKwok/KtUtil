@@ -1,4 +1,4 @@
-package pers.shawxingkwok.ktx
+package pers.shawxingkwok.ktutil
 
 import kotlin.properties.ReadOnlyProperty
 import kotlin.properties.ReadWriteProperty

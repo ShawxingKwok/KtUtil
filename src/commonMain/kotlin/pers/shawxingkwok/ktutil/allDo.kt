@@ -1,4 +1,4 @@
-package pers.shawxingkwok.ktx
+package pers.shawxingkwok.ktutil
 
 /**
  * Makes all [elements] of the nearest shared type [T] [act].

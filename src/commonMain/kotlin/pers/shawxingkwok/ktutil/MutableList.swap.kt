@@ -1,4 +1,4 @@
-package pers.shawxingkwok.ktx
+package pers.shawxingkwok.ktutil
 
 /**
  * Swap values between elements at [i] and [j].

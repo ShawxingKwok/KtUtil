@@ -1,4 +1,4 @@
-package pers.shawxingkwok.ktx
+package pers.shawxingkwok.ktutil
 
 private fun Number.parseToOrder(): String{
     val str = toString()

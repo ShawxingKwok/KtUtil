@@ -1,4 +1,4 @@
-package pers.shawxingkwok.ktx
+package pers.shawxingkwok.ktutil
 
 /**
  * Solves the nullability bug of [MutableMap.getOrPut].

@@ -106,7 +106,7 @@ tasks.withType(DokkaTask).configureEach {
 
 // publish
 mavenPublishing {
-    coordinates("io.github.shawxingkwok", "ktx", "1.0.0-SNAPSHOT")
+    coordinates("io.github.shawxingkwok", "kt-util", "1.0.0-SNAPSHOT")
     pom {
         name = "Personal kt util"
         description = ""

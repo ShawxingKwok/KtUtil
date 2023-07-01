@@ -1,4 +1,4 @@
-package pers.shawxingkwok.ktx
+package pers.shawxingkwok.ktutil
 
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
