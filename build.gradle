@@ -86,7 +86,7 @@ kotlin {
 tasks.withType(DokkaTask).configureEach {
     suppressInheritedMembers.set(true)
 
-    outputDirectory.set(file("/Users/william/IdeaProjects/library/ITWorks/content/docs/multi-platform/ktutil/html"))
+    outputDirectory.set(file("/Users/william/IdeaProjects/library/ITWorks/content/docs/multi-platform/kt-util/html"))
 
     dokkaSourceSets.configureEach {
         documentedVisibilities.set([
