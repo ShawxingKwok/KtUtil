@@ -17,9 +17,6 @@ repositories {
     mavenCentral()
 }
 
-group = 'io.github.shawxingkwok'
-version = '1.0-SNAPSHOT'
-
 kotlin {
     explicitApiWarning()
 
