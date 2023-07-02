@@ -4,10 +4,14 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
+/**
+ * Simplifies from `lazy(LazyThreadSafetyMode.NONE){ ... }` to `lazyFast{ ... }`
+ * which is inexpensive though thread-unsafe, and should be more common than `lazy{ ... }`.
+ */
 public fun <T> lazyFast(initialize: () -> T): Lazy<T> = lazy(LazyThreadSafetyMode.NONE, initialize)
 
 /**
- * Mutable but unsafe.
+ * Is used like [lazy], but mutable and thread-unsafe.
  */
 public inline fun <T> mutableLazy(crossinline initialize: () -> T): ReadWriteProperty<Any?, T> =
     object : ReadWriteProperty<Any?, T> {
@@ -30,12 +34,12 @@ public inline fun <T> mutableLazy(crossinline initialize: () -> T): ReadWritePro
     }
 
 /**
- * Passes the receiver of [T] to initialize a value easily with [mode].
+ * Passes the receiver of [T] to initialize a [lazy] value easily with [mode].
  *
  * Usage example:
  *
  * ```
- * val Context.database by receivedLazy{ DatabaseBuilder.build(...) }
+ * val Context.database by receivedLazy{ context -> DatabaseBuilder.build(context, ...) }
  */
 public inline fun <T: Any, V> receivedLazy(
     mode: LazyThreadSafetyMode = LazyThreadSafetyMode.SYNCHRONIZED,
@@ -52,12 +56,12 @@ public inline fun <T: Any, V> receivedLazy(
 }
 
 /**
- * Passes the receiver of [T] to initialize a value easily with [lock].
+ * Passes the receiver of [T] to initialize a [lazy] value easily with [lock].
  *
  * Usage example:
  *
  * ```
- * val Context.database by receivedLazy{ DatabaseBuilder.build(...) }
+ * val Context.database by receivedLazy{ context -> DatabaseBuilder.build(context, ...) }
  */
 public inline fun <T: Any, V> receivedLazy(
     lock: Any,

@@ -7,6 +7,8 @@ import kotlin.reflect.KProperty
 /**
  * A delegate interface providing [onDelegate] which contains **thisRef** and **property**
  * for the initialization.
+ *
+ * **Note**: this function is needless before you excel at Kotlin.
  */
 public interface KReadOnlyProperty<in T, out V> {
 
