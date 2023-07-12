@@ -5,8 +5,7 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /**
- * A delegate interface providing [onDelegate] which contains **thisRef** and **property**
- * for the initialization.
+ * A delegate interface providing [onDelegate] which contains **thisRef** and **property**.
  *
  * **Note**: this function is needless before you excel at Kotlin.
  */
