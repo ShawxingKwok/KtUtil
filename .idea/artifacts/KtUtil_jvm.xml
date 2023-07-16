@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KtUtil-jvm">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="KtUtil-jvm.jar">
+      <element id="module-output" name="KtUtil.jvmMain" />
+    </root>
+  </artifact>
+</component>
