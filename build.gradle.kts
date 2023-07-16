@@ -94,16 +94,15 @@ tasks.withType<DokkaTask>().configureEach {
 mavenPublishing {
     coordinates("io.github.shawxingkwok", "kt-util", "1.0.0-SNAPSHOT")
     pom {
-        val repoName = "KtUtil"
-
-        name.set("Personal kt util")
-        description.set("")
+        name.set("KtUtil")
+        description.set("Personal kt util")
         inceptionYear.set("2023")
-        url.set("https://github.com/ShawxingKwok/$repoName/")
+
+        url.set("https://github.com/ShawxingKwok/${name.get()}/")
 
         scm{
-            connection.set("scm:git:git://github.com/ShawxingKwok/$repoName.git")
-            developerConnection.set("scm:git:ssh://git@github.com/ShawxingKwok/$repoName.git")
+            connection.set("scm:git:git://github.com/ShawxingKwok/${name.get()}.git")
+            developerConnection.set("scm:git:ssh://git@github.com/ShawxingKwok/${name.get()}.git")
         }
     }
 }
