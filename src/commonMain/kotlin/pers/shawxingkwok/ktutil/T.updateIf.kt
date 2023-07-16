@@ -1,5 +1,6 @@
 package pers.shawxingkwok.ktutil
 
+import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
@@ -14,6 +15,7 @@ import kotlin.contracts.contract
  *    .joinToString()
  *    .updateIf({ it.any() }){ "$it." }
  */
+@OptIn(ExperimentalContracts::class)
 public inline fun <T> T.updateIf(
     predicate: (T) -> Boolean,
     update: (T) -> T,
