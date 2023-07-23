@@ -29,12 +29,13 @@ kotlin {
     }
 
     val hostOs = System.getProperty("os.name")
-    val nativeTarget = when {
+    when {
         hostOs == "Mac OS X" -> macosX64("native")
         hostOs == "Linux" -> linuxX64("native")
         hostOs.startsWith("Windows") -> mingwX64("native")
         else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
     }
+    .binaries.executable { entryPoint = "main" }
 
     macosX64()
     macosArm64()
@@ -120,15 +121,16 @@ tasks.withType<DokkaTask>().configureEach {
 mavenPublishing {
     coordinates("io.github.shawxingkwok", "kt-util", "1.0.0-SNAPSHOT")
     pom {
-        name.set("KtUtil")
+        val repo = "KtUtil"
+        name.set(repo)
         description.set("Personal kt util")
         inceptionYear.set("2023")
 
-        url.set("https://github.com/ShawxingKwok/${name.get()}/")
+        url.set("https://github.com/ShawxingKwok/$repo/")
 
         scm{
-            connection.set("scm:git:git://github.com/ShawxingKwok/${name.get()}.git")
-            developerConnection.set("scm:git:ssh://git@github.com/ShawxingKwok/${name.get()}.git")
+            connection.set("scm:git:git://github.com/ShawxingKwok/$repo.git")
+            developerConnection.set("scm:git:ssh://git@github.com/ShawxingKwok/$repo.git")
         }
     }
 }
