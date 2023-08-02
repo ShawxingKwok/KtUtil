@@ -5,15 +5,16 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /**
- * A delegate interface providing [onDelegate] which contains **thisRef** and **property**.
+ * A delegate interface extending from [ReadOnlyProperty],
+ * and providing [onDelegate] which contains **thisRef** and **property**.
  *
  * **Note**: this function is needless before you excel at Kotlin.
  */
-public interface KReadOnlyProperty<in T, out V> {
+public interface KReadOnlyProperty<in T, out V> : ReadOnlyProperty<T, V>{
 
     public fun onDelegate(thisRef: T, property: KProperty<*>)
 
-    public fun getValue(thisRef: T, property: KProperty<*>): V
+    public override fun getValue(thisRef: T, property: KProperty<*>): V
 
     public operator fun provideDelegate(
         thisRef: T,
@@ -28,9 +29,9 @@ public interface KReadOnlyProperty<in T, out V> {
 /**
  * A delegate interface extending from [KReadOnlyProperty] and providing [setValue].
  */
-public interface KReadWriteProperty<in T, V> : KReadOnlyProperty<T, V> {
+public interface KReadWriteProperty<in T, V> : KReadOnlyProperty<T, V>, ReadWriteProperty<T, V> {
 
-    public fun setValue(thisRef: T, property: KProperty<*>, value: V)
+    public override fun setValue(thisRef: T, property: KProperty<*>, value: V)
 
     public override operator fun provideDelegate(
         thisRef: T,
