@@ -5,15 +5,9 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /**
- * Simplifies from `lazy(LazyThreadSafetyMode.NONE){ ... }` to `lazyFast{ ... }`
- * which is inexpensive though thread-unsafe, and should be more common than `lazy{ ... }`.
+ * Simplifies from `lazy(LazyThreadSafetyMode.NONE){ ... }`, and is mutable.
  */
-public fun <T> lazyFast(initialize: () -> T): Lazy<T> = lazy(LazyThreadSafetyMode.NONE, initialize)
-
-/**
- * Is used like [lazy], but mutable and thread-unsafe.
- */
-public inline fun <T> mutableLazy(crossinline initialize: () -> T): ReadWriteProperty<Any?, T> =
+public inline fun <T> fastLazy(crossinline initialize: () -> T): ReadWriteProperty<Any?, T> =
     object : ReadWriteProperty<Any?, T> {
         var _value: Any? = null
         var initialized = false

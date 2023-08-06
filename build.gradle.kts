@@ -32,14 +32,14 @@ kotlin {
         nodejs()
     }
 
-    val hostOs = System.getProperty("os.name")
-    when {
-        hostOs == "Mac OS X" -> macosX64("native")
-        hostOs == "Linux" -> linuxX64("native")
-        hostOs.startsWith("Windows") -> mingwX64("native")
-        else -> throw GradleException("Host OS $hostOs is not supported in Kotlin/Native.")
-    }
-    .binaries.executable { entryPoint = "main" }
+    // val hostOs = System.getProperty("os.name")
+    // when {
+    //     hostOs == "Mac OS X" -> macosX64("native")
+    //     hostOs == "Linux" -> linuxX64("native")
+    //     hostOs.startsWith("Windows") -> mingwX64("native")
+    //     else -> throw GradleException("Host OS $hostOs is not supported in Kotlin/Native.")
+    // }
+    // .binaries.executable { entryPoint = "main" }
 
     macosX64()
     macosArm64()
