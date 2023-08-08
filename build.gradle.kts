@@ -123,7 +123,9 @@ tasks.withType<DokkaTask>().configureEach {
 
 // publish
 mavenPublishing {
-    coordinates("io.github.shawxingkwok", "kt-util", "1.0.0-SNAPSHOT")
+    val isSnapshot = false
+    val version = "1.0.0"
+    coordinates("io.github.shawxingkwok", "kt-util", if (isSnapshot) "$version-SNAPSHOT" else version)
     pom {
         val repo = "KtUtil"
         name.set(repo)

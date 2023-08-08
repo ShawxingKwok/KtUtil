@@ -2,12 +2,18 @@ package pers.shawxingkwok.ktutil
 
 private fun Number.parseToOrder(): String{
     val str = toString()
-    val suffix = when(str.last()){
-        '1' -> "st"
-        '2' -> "nd"
-        '3' -> "rd"
-        else -> "th"
-    }
+
+    val suffix =
+        if (str.getOrNull(str.lastIndex - 1) == '1')
+            "th"
+        else
+            when(str.last()){
+                '1' -> "st"
+                '2' -> "nd"
+                '3' -> "rd"
+                else -> "th"
+            }
+
     return "$str$suffix"
 }
 
@@ -17,10 +23,10 @@ private fun Number.parseToOrder(): String{
  * Usage example:
  *
  * ```
- * 11.toShort().toOrder() // 11st
- * 12.toShort().toOrder() // 12nd
- * 13.toShort().toOrder() // 13rd
- * 14.toShort().toOrder() // 14th
+ * 21.toShort().toOrder() // 21st
+ * 32.toShort().toOrder() // 32nd
+ * 43.toShort().toOrder() // 43rd
+ * 54.toShort().toOrder() // 54th
  */
 public fun Short.toOrder(): String = parseToOrder()
 
@@ -30,10 +36,10 @@ public fun Short.toOrder(): String = parseToOrder()
  * Usage example:
  *
  * ```
- * 11.toOrder() // 11st
- * 12.toOrder() // 12nd
- * 13.toOrder() // 13rd
- * 14.toOrder() // 14th
+ * 21.toOrder() // 21st
+ * 32.toOrder() // 32nd
+ * 43.toOrder() // 43rd
+ * 54.toOrder() // 54th
  */
 public fun Int.toOrder(): String = parseToOrder()
 
@@ -42,9 +48,9 @@ public fun Int.toOrder(): String = parseToOrder()
  *
  * Usage example:
  * ```
- * 11L.toOrder() // 11st
- * 12L.toOrder() // 12nd
- * 13L.toOrder() // 13rd
- * 14L.toOrder() // 14th
+ * 21L.toOrder() // 21st
+ * 32L.toOrder() // 32nd
+ * 43L.toOrder() // 43rd
+ * 54L.toOrder() // 54th
  */
 public fun Long.toOrder(): String = parseToOrder()

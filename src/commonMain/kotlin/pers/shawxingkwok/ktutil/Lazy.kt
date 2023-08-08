@@ -9,21 +9,21 @@ import kotlin.reflect.KProperty
  */
 public inline fun <T> fastLazy(crossinline initialize: () -> T): ReadWriteProperty<Any?, T> =
     object : ReadWriteProperty<Any?, T> {
-        var _value: Any? = null
+        var value: Any? = null
         var initialized = false
 
         override fun getValue(thisRef: Any?, property: KProperty<*>): T {
             if (!initialized){
                 initialized = true
-                _value = initialize()
+                value = initialize()
             }
 
             @Suppress("UNCHECKED_CAST")
-            return _value as T
+            return value as T
         }
 
         override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
-            _value = value
+            this.value = value
         }
     }
 

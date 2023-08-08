@@ -1,6 +1,7 @@
 import pers.shawxingkwok.ktutil.KReadOnlyProperty
 import pers.shawxingkwok.ktutil.KReadWriteProperty
 import pers.shawxingkwok.ktutil.getOrPutNullable
+import pers.shawxingkwok.ktutil.toOrder
 import kotlin.reflect.KProperty
 import kotlin.test.Test
 
@@ -34,5 +35,16 @@ class AllTest {
 
         x = "Fp"
         println(31)
+    }
+
+    @Test
+    fun testToOrder(){
+        1.toOrder().let(::println)
+        11.toOrder().let(::println)
+        21.toOrder().let(::println)
+
+        2.toOrder().let(::println)
+        12.toOrder().let(::println)
+        22.toOrder().let(::println)
     }
 }
