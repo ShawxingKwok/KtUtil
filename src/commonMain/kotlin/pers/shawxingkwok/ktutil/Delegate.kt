@@ -29,8 +29,10 @@ public interface KReadOnlyProperty<in T, out V> : ReadOnlyProperty<T, V>{
 /**
  * A delegate interface extending from [KReadOnlyProperty] and providing [setValue].
  */
-public interface KReadWriteProperty<in T, V> : KReadOnlyProperty<T, V>, ReadWriteProperty<T, V> {
-
+public interface KReadWriteProperty<in T, V> :
+    KReadOnlyProperty<T, V>,
+    ReadWriteProperty<T, V>
+{
     public override fun setValue(thisRef: T, property: KProperty<*>, value: V)
 
     public override operator fun provideDelegate(
