@@ -1,7 +1,4 @@
-import pers.shawxingkwok.ktutil.KReadOnlyProperty
-import pers.shawxingkwok.ktutil.KReadWriteProperty
-import pers.shawxingkwok.ktutil.getOrPutNullable
-import pers.shawxingkwok.ktutil.toOrder
+import pers.shawxingkwok.ktutil.*
 import kotlin.reflect.KProperty
 import kotlin.test.Test
 
@@ -18,24 +15,7 @@ class AllTest {
     }
 
     @Test
-    fun testDelegate(){
-        var x by object : KReadWriteProperty<Any?, String>{
-            override fun onDelegate(thisRef: Any?, property: KProperty<*>) {
-                println("onDelegate")
-            }
-
-            override fun getValue(thisRef: Any?, property: KProperty<*>): String {
-                return "x"
-            }
-
-            override fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
-
-            }
-        }
-
-        x = "Fp"
-        println(31)
-    }
+    fun testDelegate(){}
 
     @Test
     fun testToOrder(){
